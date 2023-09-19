@@ -1,17 +1,18 @@
 
-function printAsyncName(callBack,nome){
-  setTimeout(()=>{
-    console.log("Ciao");
+function printAsyncName(callback, nome) {
 
+    setTimeout(function() {
+      callback();
 
-    setTimeout (()=>{
-      console.log(nome);
+      setTimeout(function() {
+        console.log(nome);
+      }, 2000);
+    }, 1000);
+  }
+  
 
-    },2000);
-  },1000);
-}
-
-
-printAsyncName(()=>{
-
-}, "Christian");
+  function salutare() {
+    console.log("Hello");
+  }
+  
+  printAsyncName(salutare, "christian");
